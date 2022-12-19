@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "214280148995",
+    "project_id": "space-deer-65a0e",
+    "storage_bucket": "space-deer-65a0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214280148995:android:f8fc1a2b1c44b7595e5636",
+        "android_client_info": {
+          "package_name": "com.space_deer.test_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214280148995-6elfuskg1f3mv9o807vaq1r0e6hdv4ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGNcAisZW6A_t7Dg_EQ8LPUg2COdpmMfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214280148995-6elfuskg1f3mv9o807vaq1r0e6hdv4ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
