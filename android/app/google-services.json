@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "214280148995-di127unc3tcqs2qekilb791acgpcf5ud.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.space_deer.test_app",
+            "certificate_hash": "9fafa16b81f5f6d74b367519f9e4e475e86b0670"
+          }
+        },
+        {
           "client_id": "214280148995-6elfuskg1f3mv9o807vaq1r0e6hdv4ob.apps.googleusercontent.com",
           "client_type": 3
         }
