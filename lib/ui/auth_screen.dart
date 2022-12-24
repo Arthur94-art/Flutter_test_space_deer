@@ -1,9 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_space_deer/bloc/login/auth/auth_bloc.dart';
-import 'package:test_space_deer/bloc/login/sent_code/sent_code_bloc.dart';
 
 import 'package:test_space_deer/ui/listeners/auth_listener.dart';
 import 'package:test_space_deer/ui/listeners/otp_listener.dart';

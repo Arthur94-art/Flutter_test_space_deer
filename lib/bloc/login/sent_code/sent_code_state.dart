@@ -5,7 +5,7 @@ abstract class SentOTPState {}
 class SentCodeInitialState extends SentOTPState {}
 
 class SentCodeSuccessState extends SentOTPState {
-  final String userData;
+  final UserCredential userData;
   SentCodeSuccessState(this.userData);
 }
 

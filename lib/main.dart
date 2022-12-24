@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_space_deer/bloc/login/auth/auth_bloc.dart';
 import 'package:test_space_deer/bloc/login/check_user_exist/check_logged_user_bloc.dart';
 import 'package:test_space_deer/bloc/login/sent_code/sent_code_bloc.dart';
-import 'package:test_space_deer/ui/home.dart';
 import 'package:test_space_deer/ui/splach_screen.dart';
 
 void main() async {

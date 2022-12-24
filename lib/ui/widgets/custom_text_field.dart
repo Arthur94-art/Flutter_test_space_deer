@@ -1,8 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_space_deer/bloc/login/auth/auth_bloc.dart';
 import 'package:test_space_deer/utils/input_formatter.dart';
@@ -81,6 +79,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   )),
             ),
             const SizedBox(height: 20),
+            _isShowLoading
+                ? const CircularProgressIndicator()
+                : const SizedBox(),
+            const SizedBox(
+              height: 10,
+            ),
             Text(_isShowLoading ? 'Sending...' : '')
           ],
         ),

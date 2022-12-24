@@ -9,7 +9,7 @@ class SentCodeEvent extends SentOTPEvent {
 }
 
 class SendCodeSuccessEvent extends SentOTPEvent {
-  final String userData;
+  final UserCredential userData;
   SendCodeSuccessEvent(this.userData);
 }
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_space_deer/bloc/login/sent_code/sent_code_bloc.dart';
@@ -10,7 +12,8 @@ class OTPListener {
       if (state is SentCodeInitialState) {
         const CircularProgressIndicator();
       }
-      if (state is SentCodeSuccessState && state.userData.isNotEmpty) {
+      if (state is SentCodeSuccessState &&
+          state.userData.user?.uid.isNotEmpty as bool) {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
