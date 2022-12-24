@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
   String? uid;
@@ -8,8 +9,8 @@ class UserModel {
 
   UserModel.fromJson(Map<String, dynamic> json) {
     uid = json['uid'];
-    creationTime = json['creationTime'];
-    lastSignInTime = json['lastSignInTime'];
+    creationTime = (json['creationTime'] as Timestamp).toDate();
+    lastSignInTime = (json['lastSignInTime'] as Timestamp).toDate();
   }
 
   Map<String, dynamic> toJson() {
