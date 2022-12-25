@@ -6,23 +6,23 @@ class AuthRepository {
 
   BehaviorSubject errorMessage = BehaviorSubject.seeded('');
   BehaviorSubject verificationID = BehaviorSubject.seeded('');
-  BehaviorSubject isShowButton = BehaviorSubject.seeded(true);
+  BehaviorSubject isShowLoading = BehaviorSubject.seeded(true);
 
   Future<void> signUpWithPhone(String phoneNumber) async {
-    isShowButton.add(false);
+    isShowLoading.add(false);
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
         await _auth.signInWithCredential(credential);
-        isShowButton.add(true);
+        isShowLoading.add(true);
       },
       verificationFailed: (e) {
         errorMessage.add(e.message);
-        isShowButton.add(true);
+        isShowLoading.add(true);
       },
       codeSent: ((String verificationId, int? resendToken) async {
         verificationID.add(verificationId);
-        isShowButton.add(true);
+        isShowLoading.add(true);
       }),
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
@@ -31,6 +31,6 @@ class AuthRepository {
   void close() {
     errorMessage.close();
     verificationID.close();
-    isShowButton.close();
+    isShowLoading.close();
   }
 }

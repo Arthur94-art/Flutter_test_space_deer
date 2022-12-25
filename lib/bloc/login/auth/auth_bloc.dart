@@ -10,7 +10,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository = AuthRepository();
   late final StreamSubscription _verificationSubscription;
   late final StreamSubscription _errorSubscription;
-  late final StreamSubscription _showButtonSubscription;
+  late final StreamSubscription _showLoadingSubscription;
   AuthBloc() : super(AuthLoadingState()) {
     _verificationSubscription =
         _authRepository.verificationID.listen((verificationID) {
@@ -20,9 +20,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     _errorSubscription = _authRepository.errorMessage.listen((errorMessage) {
       add(AuthErrorEvent(errorMessage));
     });
-    _showButtonSubscription =
-        _authRepository.isShowButton.listen((isShowButton) {
-      add(ShowButtonEvent(isShowButton));
+    _showLoadingSubscription =
+        _authRepository.isShowLoading.listen((isShowLoading) {
+      add(ShowButtonEvent(isShowLoading));
     });
     on<AuthRequestEvent>(_authRequestEventHandler);
     on<AuthSuccessEvent>(_authRequestSuccessHandler);
@@ -50,7 +50,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> close() {
     _verificationSubscription.cancel();
     _errorSubscription.cancel();
-    _showButtonSubscription.cancel();
+    _showLoadingSubscription.cancel();
     _authRepository.close();
 
     return super.close();

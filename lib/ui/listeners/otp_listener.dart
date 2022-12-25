@@ -12,10 +12,10 @@ class OTPListener {
       }
       if (state is SentCodeSuccessState &&
           state.userData.user?.uid.isNotEmpty as bool) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
-        );
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePage()),
+            (route) => false);
       }
       if (state is SentCodeFailureState && state.errorMessage.isNotEmpty) {
         Navigator.pop(context);

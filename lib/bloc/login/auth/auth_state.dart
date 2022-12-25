@@ -10,8 +10,8 @@ class AuthLoadedSuccessState extends AuthState {
 }
 
 class ShowButtonState extends AuthState {
-  final bool isShowButton;
-  ShowButtonState(this.isShowButton);
+  final bool isShowLoading;
+  ShowButtonState(this.isShowLoading);
 }
 
 class AuthFaliureState extends AuthState {

@@ -1,12 +1,12 @@
-import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SentCodeRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   BehaviorSubject errorMessage = BehaviorSubject.seeded('');
-  BehaviorSubject userData = BehaviorSubject.seeded(UserCredential);
+  BehaviorSubject userData = BehaviorSubject.seeded({});
 
   Future<void> sentCode(String verificationId, String controllerText) async {
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
@@ -28,17 +28,16 @@ class SentCodeRepository {
 
   void setUserToCollection(
       String uuid, DateTime creationTime, DateTime lastSignInTime) {
-    FirebaseFirestore.instance
-        .collection('users')
-        .add({
-          'creationTime': creationTime, // John Doe
-          'lastSignInTime': lastSignInTime, // Stokes and Sons
-          'uid': uuid // 42
-        })
-        .then((value) => log("User Added"))
-        .catchError((error) {
-          errorMessage.add("Failed to add user: $error");
-        });
+    FirebaseFirestore.instance.collection('users').add({
+      'creationTime': creationTime,
+      'lastSignInTime': lastSignInTime,
+      'uid': uuid
+    }).then((value) async {
+      SharedPreferences prefData = await SharedPreferences.getInstance();
+      prefData.setString('UserID', uuid);
+    }).catchError((error) {
+      errorMessage.add("Failed to add user: $error");
+    });
   }
 
   Future<void> setIdToSharedPref(String id) async {}

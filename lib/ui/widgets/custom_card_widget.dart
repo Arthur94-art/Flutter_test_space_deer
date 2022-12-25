@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomCardWidget extends StatelessWidget {
   final String uuid;
@@ -21,6 +22,12 @@ class CustomCardWidget extends StatelessWidget {
             _Text(text: 'ID: $uuid'),
             _Text(text: 'Creation Time: $creationTime'),
             _Text(text: 'Last Sign In Time: $lastSignInTime'),
+            ElevatedButton(
+                onPressed: () async {
+                  SharedPreferences p = await SharedPreferences.getInstance();
+                  p.clear();
+                },
+                child: const Text('Clear'))
           ],
         ),
       ),

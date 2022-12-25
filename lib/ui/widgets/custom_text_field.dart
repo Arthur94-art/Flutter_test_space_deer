@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_space_deer/bloc/login/auth/auth_bloc.dart';
@@ -24,10 +22,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is ShowButtonState) {
-          log('${state.isShowButton}');
-          _isShowButton = state.isShowButton;
-          _isSwohTextField = state.isShowButton;
-          _isShowLoading = !state.isShowButton;
+          _isShowButton = state.isShowLoading;
+          _isSwohTextField = state.isShowLoading;
+          _isShowLoading = !state.isShowLoading;
           setState(() {});
         }
       },
