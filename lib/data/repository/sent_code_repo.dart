@@ -8,7 +8,6 @@ abstract class SentCode {
   Future<void> sentCode(String verificationId, String controllerText);
   void setUserToCollection(String uuid, DateTime creationTime,
       DateTime lastSignInTime, String notificationToken);
-  Future<void> setIdToSharedPref(String id);
   void close();
 }
 
@@ -55,8 +54,6 @@ class SentCodeRepository extends SentCode {
     });
   }
 
-  @override
-  Future<void> setIdToSharedPref(String id) async {}
   @override
   void close() {
     errorMessage.close();
