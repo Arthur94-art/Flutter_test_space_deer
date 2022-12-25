@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_space_deer/bloc/login/sent_code/sent_code_bloc.dart';
@@ -40,7 +38,6 @@ class DialogOTP {
         actions: [
           TextButton(
             onPressed: () {
-              log(verificationID);
               context
                   .read<SendOTPBloc>()
                   .add(SentCodeEvent(verificationID, codeController.text));

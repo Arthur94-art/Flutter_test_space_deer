@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                   lastSignInTime:
                       state.userModel[index].lastSignInTime as DateTime,
                   notificationToken:
-                      state.userModel[index].notificationToken ?? 'sdf',
+                      state.userModel[index].notificationToken ?? '',
                 );
               },
             );

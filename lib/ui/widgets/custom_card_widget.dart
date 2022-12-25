@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:test_space_deer/utils/date_time_formatter.dart';
 
 class CustomCardWidget extends StatelessWidget {
   final String uuid;
@@ -22,15 +22,13 @@ class CustomCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _Text(text: 'ID: $uuid'),
-            _Text(text: 'Creation Time: $creationTime'),
-            _Text(text: 'Last Sign In Time: $lastSignInTime'),
+            _Text(
+                text:
+                    'Creation Time: ${DateTimeFormatter.getDate(creationTime)}'),
+            _Text(
+                text:
+                    'Last Sign In Time: ${DateTimeFormatter.getDate(lastSignInTime)}'),
             _Text(text: 'Notification Token: $notificationToken'),
-            ElevatedButton(
-                onPressed: () async {
-                  SharedPreferences p = await SharedPreferences.getInstance();
-                  p.clear();
-                },
-                child: const Text('Clear'))
           ],
         ),
       ),

@@ -1,13 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/subjects.dart';
 
-class AuthRepository {
+abstract class Auth {
+  Future<void> signUpWithPhone(String phoneNumber);
+  void close();
+}
+
+class AuthRepository extends Auth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   BehaviorSubject errorMessage = BehaviorSubject.seeded('');
   BehaviorSubject verificationID = BehaviorSubject.seeded('');
   BehaviorSubject isShowLoading = BehaviorSubject.seeded(true);
-
+  @override
   Future<void> signUpWithPhone(String phoneNumber) async {
     isShowLoading.add(false);
     await _auth.verifyPhoneNumber(
@@ -28,6 +33,7 @@ class AuthRepository {
     );
   }
 
+  @override
   void close() {
     errorMessage.close();
     verificationID.close();
