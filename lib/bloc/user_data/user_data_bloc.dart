@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_space_deer/data/models/userModel.dart';
+import 'package:test_space_deer/data/models/user_model.dart';
 import 'package:test_space_deer/data/repository/user_repository.dart';
 
 part 'user_data_event.dart';

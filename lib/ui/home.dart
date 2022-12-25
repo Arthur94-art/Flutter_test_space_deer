@@ -32,11 +32,13 @@ class _HomePageState extends State<HomePage> {
               itemCount: state.userModel.length,
               itemBuilder: (context, index) {
                 return CustomCardWidget(
-                    uuid: state.userModel[index].uid as String,
-                    creationTime:
-                        state.userModel[index].creationTime as DateTime,
-                    lastSignInTime:
-                        state.userModel[index].lastSignInTime as DateTime);
+                  uuid: state.userModel[index].uid as String,
+                  creationTime: state.userModel[index].creationTime as DateTime,
+                  lastSignInTime:
+                      state.userModel[index].lastSignInTime as DateTime,
+                  notificationToken:
+                      state.userModel[index].notificationToken ?? 'sdf',
+                );
               },
             );
           }

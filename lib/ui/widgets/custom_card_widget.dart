@@ -5,10 +5,12 @@ class CustomCardWidget extends StatelessWidget {
   final String uuid;
   final DateTime creationTime;
   final DateTime lastSignInTime;
+  final String notificationToken;
   const CustomCardWidget(
       {required this.uuid,
       required this.creationTime,
       required this.lastSignInTime,
+      required this.notificationToken,
       super.key});
 
   @override
@@ -22,6 +24,7 @@ class CustomCardWidget extends StatelessWidget {
             _Text(text: 'ID: $uuid'),
             _Text(text: 'Creation Time: $creationTime'),
             _Text(text: 'Last Sign In Time: $lastSignInTime'),
+            _Text(text: 'Notification Token: $notificationToken'),
             ElevatedButton(
                 onPressed: () async {
                   SharedPreferences p = await SharedPreferences.getInstance();

@@ -4,13 +4,19 @@ class UserModel {
   String? uid;
   DateTime? creationTime;
   DateTime? lastSignInTime;
+  String? notificationToken;
 
-  UserModel({this.uid, this.creationTime, this.lastSignInTime});
+  UserModel(
+      {this.uid,
+      this.creationTime,
+      this.lastSignInTime,
+      this.notificationToken});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     uid = json['uid'];
     creationTime = (json['creationTime'] as Timestamp).toDate();
     lastSignInTime = (json['lastSignInTime'] as Timestamp).toDate();
+    notificationToken = json['notificationToken'];
   }
 
   Map<String, dynamic> toJson() {
@@ -18,6 +24,7 @@ class UserModel {
     data['uid'] = uid;
     data['creationTime'] = creationTime;
     data['lastSignInTime'] = lastSignInTime;
+    data['notificationToken'] = notificationToken;
     return data;
   }
 }
